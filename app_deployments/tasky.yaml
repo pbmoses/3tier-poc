@@ -16,7 +16,7 @@ spec:
       serviceAccountName: cluster-admin-tasky
       containers:
       - name: tasky-app-container
-        image: pbmoses/task-wiz:latest
+        image: pbmoses/task-wiz:1.0.1
         securityContext:
           runAsUser: 0  # Root user
           runAsGroup: 0 # Root group
