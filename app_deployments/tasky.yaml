@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tasky-app
+  namespace: tasky
 spec:
   replicas: 1
   selector:
