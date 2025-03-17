@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasky-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tasky-app
+  template:
+    metadata:
+      labels:
+        app: tasky-app
+    spec:
+      serviceAccountName: cluster-admin-tasky
+      containers:
+      - name: tasky-app-container
+        image: pbmoses/task-wiz:latest
+        securityContext:
+          runAsUser: 0  # Root user
+          runAsGroup: 0 # Root group
+        env:
+        - name: MONGODB_URI 
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: MONGODB_URI 
+        - name: SECRET_KEY 
+          valueFrom:
+            secretKeyRef:
+              name: jwt-secret
+              key: SECRET_KEY 
