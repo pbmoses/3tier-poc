@@ -9,10 +9,12 @@
 #  description = "region"
 #}
 
+
 provider "google" {
-  project = var.project_id
-  region  = var.region
+  project = "clgcporg10-163"
+  region = "us-central1"
 }
+
 
 # VPC
 resource "google_compute_network" "vpc" {
