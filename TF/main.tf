@@ -110,7 +110,7 @@ resource "google_storage_bucket" "static" {
 
 resource "google_storage_bucket_iam_member" "member" {
   provider = google
-  bucket   = google_storage_bucket.default.name
+  bucket   = google_storage_bucket.static.name
   role     = "roles/storage.objectViewer"
   member   = "allUsers"
 }
