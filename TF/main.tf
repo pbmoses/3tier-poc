@@ -29,6 +29,12 @@ variable "gke_num_nodes" {
   default     = 2
   description = "number of gke nodes"
 }
+
+variable "project_id" {
+  description = "project id"
+  default = "clgcporg10-163"
+  
+}
 # GKE cluster
 data "google_container_engine_versions" "gke_version" {
   location = var.region
