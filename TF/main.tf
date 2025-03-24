@@ -20,11 +20,15 @@ variable "gke_password" {
   description = "gke password"
 }
 
+variable "region" {
+  default     =  "us-central1"
+  description = "GCP region"
+}
+
 variable "gke_num_nodes" {
   default     = 2
   description = "number of gke nodes"
 }
-
 # GKE cluster
 data "google_container_engine_versions" "gke_version" {
   location = var.region
